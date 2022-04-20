@@ -1,0 +1,100 @@
+<div class="container card">
+  <div class="card-body">
+    <h1 class="text-center text-primary">Application Form</h1>
+    <div>
+      <label for="name">name</label>
+      <input type="text" name="name" (input)="btn($event)" id="name">
+      <!-- <input type="submit" >click</input> -->
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col">
+
+        <form class="text-dark font-weight-bold" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+           <div class="row mb-2">
+             <div class="col-sm-6">
+               <label class="form-label" for="username">Username</label>
+             </div>
+             <div class="col-sm-6">
+              <input class="form-control" type="text" id="username" name="username" [(ngModel)]="userModel.username1">
+             </div>
+           </div>
+
+           <div class="row mb-2">
+             <div class="col-sm-6">
+               <label for="email">Email Id</label>
+             </div>
+             <div class="col-sm-6">
+              <input class="form-control" type="email" id="email" name="email" [(ngModel)]="userModel.email1">
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-sm-6">
+               <label class="form-label" for="address">Address</label>
+             </div>
+             <div class="col-sm-6">
+              <input class="form-control" type="text" id="address" name="address" [(ngModel)]="userModel.address1">
+             </div>
+           </div>
+           <br><br>
+           <div class="row">
+
+            <div class="col text-center">
+             <input [ngClass]="addColor" type="submit" id="submit" class="btn btn-primary" value="submit">
+            </div>
+           </div>
+        </form>
+        <br><br>
+        <div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>S.no</th>
+                <th>username</th>
+                <th>email</th>
+                <th>address</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let x of data; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{x.username}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.address}}</td>
+                <td><button class="btn btn-success" (click)="userEdit(i,x)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="userDelete(i)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br><br>
+        <div class="p-3 mb-2 bg-success text-white font-weight-bold ">
+
+          <p>Username : {{userModel.username}}</p>
+          <p>Email : {{userModel.email}}</p>
+          <p>Address : {{userModel.address}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <select></select> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
